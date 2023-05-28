@@ -1,16 +1,21 @@
-import { db } from "../database/database.connection.js";
+import { getHotelsByCityIdDB, getHotelsDetailsDB } from "../repositories/hotels.repositories.js";
 
-export async function getCitiesById(req, res) {
+export async function getHotelsByCityId(req, res) {
   try {
-    res.status(200).send();
+    const { cityId } = req.params;
+    const hotels = await getHotelsByCityIdDB(cityId);
+    res.status(200).send(hotels.rows);
   } catch (error) {
     res.status(500).send(error.message);
   }
 }
 
-export async function getHotelsById(req, res) {
+export async function getHotelsDetails(req, res) {
   try {
-    res.status(200).send();
+    const { hotelId } = req.params;
+    console.log(hotelId);
+    const hotels = await getHotelsDetailsDB(hotelId);
+    res.status(200).send(hotels.rows);
   } catch (error) {
     res.status(500).send(error.message);
   }

@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { createFlights, getFlightsById, getCitiesById } from "../controllers/flights.controllers.js";
+import { createFlights, getFlightsByDestionationCityId, getFlightsDetails } from "../controllers/flights.controllers.js";
 
 const flightsRouter = Router();
 
+flightsRouter.get("/flights/cities/:cityId", getFlightsByDestionationCityId);
+flightsRouter.get("/flights/:flightId/details", getFlightsDetails);
 flightsRouter.post("/flights", createFlights);
-flightsRouter.get("/flights/:flightsById", getFlightsById);
-flightsRouter.get("/flights/:citiesById", getCitiesById);
 
 export default flightsRouter;

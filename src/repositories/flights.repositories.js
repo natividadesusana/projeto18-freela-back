@@ -2,13 +2,13 @@ import { db } from "../database/database.connection.js";
 
 export function getFlightsByDestionationCityIdDB(cityId, minPrice, maxPrice) {
   let query = `
-      SELECT flights.id, flights.airline, flights.price, flights.avatar, flights."arrivalTime", flights."departureTime",
-        JSON_BUILD_OBJECT('id', destinationCity.id, 'name', destinationCity.name) AS destination,
-        JSON_BUILD_OBJECT('id', originCity.id, 'name', originCity.name) AS origin
-      FROM flights
-      JOIN cities AS destinationCity ON flights."destinationCityId" = destinationCity.id
-      JOIN cities AS originCity ON flights."originCityId" = originCity.id
-      WHERE flights."destinationCityId" = $1`;
+    SELECT flights.id, flights.airline, flights.price, flights.avatar, flights."arrivalTime", flights."departureTime",
+      JSON_BUILD_OBJECT('id', destinationCity.id, 'name', destinationCity.name) AS destination,
+      JSON_BUILD_OBJECT('id', originCity.id, 'name', originCity.name) AS origin
+    FROM flights
+    JOIN cities AS destinationCity ON flights."destinationCityId" = destinationCity.id
+    JOIN cities AS originCity ON flights."originCityId" = originCity.id
+    WHERE flights."destinationCityId" = $1`;
 
   const queryParams = [cityId];
 
@@ -23,11 +23,12 @@ export function getFlightsByDestionationCityIdDB(cityId, minPrice, maxPrice) {
   }
 
   query += `
-      GROUP BY flights.id, flights.airline, flights.price, flights.avatar, flights."arrivalTime", flights."departureTime",
-        destinationCity.id, destinationCity.name, originCity.id, originCity.name`;
+    GROUP BY flights.id, flights.airline, flights.price, flights.avatar, flights."arrivalTime", flights."departureTime",
+      destinationCity.id, destinationCity.name, originCity.id, originCity.name`;
 
   return db.query(query, queryParams);
 }
+
 
 export function getFlightsDetailsDB(flightId) {
   return db.query(

@@ -49,6 +49,15 @@ export function getHotelsDetailsDB(hotelId) {
   );
 }
 
-export function createHotelsDB(name) {
-  return db.query(`INSERT INTO hotels (name) VALUES ($1)`, [name]);
+export function createHotelsDB(name, description, price, avatar, cityId) {
+  return db.query(
+    `INSERT INTO hotels (
+      name,
+      description,
+      price,
+      avatar,
+      "cityId")
+      VALUES ($1, $2, $3, $4, $5)`,
+    [name, description, price, avatar, cityId]
+  );
 }

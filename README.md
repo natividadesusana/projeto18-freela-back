@@ -1,7 +1,5 @@
 # Travel Agency
 
-<img width="1437" alt="Captura de Tela 2023-06-12 às 19 15 55" src="https://github.com/natividadesusana/travel-agency/assets/95102911/9f76cf18-812d-4aac-862f-b22c34d21311">
-
 Demo: https://projeto18-freela-front-rust.vercel.app/
 
 ## ℹ️ About

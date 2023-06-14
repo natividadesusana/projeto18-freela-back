@@ -18,7 +18,7 @@ The goal was to practice creating a website that provides a digital experience f
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="40" width="52" alt="git logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" height="40" width="52" alt="github logo" /> 
 <div>
-<br>
+
 I chose to use React.js as one of the most popular web development libraries today, providing a scalable and maintainable framework for building modern web applications. I used React Router to manage the application's routes. Axios was used to make API calls and search for information about tickets, accommodations and cities. I used Styled-Components to create the user interface and provide a nice and intuitive experience for users.
 
 ## ⚙️ Features
